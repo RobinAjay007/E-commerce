@@ -1,7 +1,7 @@
 const multer =require('multer');
 const path=require('path');
 // const upload=multer({dest:'uploads/'});
-("")
+
 let counts=0;
 
 const uploadToFolder= multer.diskStorage({

@@ -1,8 +1,15 @@
 import React from 'react'
 import "./Admin.css"
+import Sidebar from '../../Components/Sidebar'
+import {Routes,Route} from 'react-router-dom'
 const Admin = () => {
   return (
-    <div>Admin</div>
+    <div className='admin'>
+      <Sidebar/>
+      <Routes>
+
+      </Routes>
+    </div>
   )
 }
 

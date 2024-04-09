@@ -25,6 +25,7 @@ router.route("/delete/product/:id").delete(productController.DeleteProduct)
 //get all product
 router.route("/get/product").get(productController.GetAllProduct)
 
+router.route("/uploadimage/:id").put(fileupload.upload.single("images"),UserController.upload)
 
 module.exports={
     router,

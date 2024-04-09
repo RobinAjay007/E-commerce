@@ -14,31 +14,32 @@ import { BsShopWindow } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { RiLogoutCircleRFill } from "react-icons/ri";
 import { useEffect, useState } from "react";
+import axios from 'axios';
 
 export const User = () => {
   const [UseName, SetUseName] = useState("");
 
   const navigation=useNavigate()
-  // const getUser = async () => {
-  //   const token = localStorage.getItem("token");
-  //   console.log(token);
+  const getUser = async () => {
+    const token = localStorage.getItem("token");
+    console.log(token);
 
-  //   let config = {
-  //     headers: {
-  //       authorization: "Bearer " + token,
-  //     },
-  //   };
-  //   console.log(config, "config");
-  //   await axios.get("http://localhost:4898/get/user", config).then((res) => {
-  //     console.log(res.data.userName,"profile");
-  //     SetUseName(res.data.userName);
-  //   });
-  // };
+    let config = {
+      headers: {
+        authorization: "Bearer " + token,
+      },
+    };
+    console.log(config, "config");
+    await axios.get("http://localhost:4898/get/user", config).then((res) => {
+      console.log(res.data.userName,"profile");
+      SetUseName(res.data.userName);
+    });
+  };
 
-  // useEffect(() => {
-  //   getUser();
+  useEffect(() => {
+    getUser();
    
-  // }, []);
+  }, []);
 
  
   
