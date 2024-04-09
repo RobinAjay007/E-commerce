@@ -10,13 +10,30 @@ const CreateProduct= async(req)=>{
 }
 
 
+const DeleteProduct=async(req)=>{
+    let id =req.params.id;
+    let FindPro=await Product.findById(id)
+    if(!FindPro){
+        return ("Product Not Available")
+    }
+    else{
+        Deletepro=await Product.findByIdAndDelete({_id:id},req.body,{new:true})
+        return Deletepro
+    }
+}
 
-// deleting api
-
-// const DeleteProduct=async(req)=>{
-//     let id=req.params.id
-// }
+const getProduct=async(req)=>{
+   let findAllProduct= await Product.find()
+   if(!findAllProduct){
+    return("No Products Available")
+   }
+   else{
+    return findAllProduct
+   }
+}
 
 module.exports={
-    CreateProduct
+    CreateProduct,
+    DeleteProduct,
+    getProduct
 }

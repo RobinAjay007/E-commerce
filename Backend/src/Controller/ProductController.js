@@ -18,8 +18,28 @@ const CreateProductt=async(req,res)=>{
     res.send(data)
 }
 
+// Delete Product
+
+const DeleteProduct=async(req,res)=>{
+    let data=await ProductServices.DeleteProduct(req)
+    res.json({
+        success:true,
+        name:data.ProductName
+    })
+}
+
+
+// Get Product
+
+const GetAllProduct=async(req,res)=>{
+    let data=await ProductServices.getProduct(req)
+   res.send(data)
+}
+
 
 module.exports={
     upload,
-    CreateProductt
+    CreateProductt,
+    DeleteProduct,
+    GetAllProduct
 }

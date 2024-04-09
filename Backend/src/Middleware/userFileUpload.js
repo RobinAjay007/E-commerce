@@ -1,13 +1,13 @@
 const multer =require('multer');
 const path=require('path');
 // const upload=multer({dest:'uploads/'});
-
+("")
 let counts=0;
 
 const uploadToFolder= multer.diskStorage({
     destination: function(req,res,cb) {
         // path operation insert and get 
-        cb(null, path.join(__dirname,'../../public'));
+        cb(null, path.join(__dirname,'../../upload/images'));
     },
     filename:function (req,file ,cb){
         let ext = path.extname(file.originalname);

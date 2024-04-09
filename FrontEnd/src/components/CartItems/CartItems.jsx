@@ -3,11 +3,15 @@ import "./CartItems.css";
 import { ShopContext } from "../../pages/home/Context/ShopContext";
 import cart_cross_icon from "../../../public/cart_cross_icon.png";
 import all_product from "../Assets/all_product";
-const CartItems = () => {
+import emptyimg from '../Assets/cartempty.webp'
+const 
+CartItems = () => {
   const {getTotalCartAmount, all_product, cartItems, removeFromCart } = useContext(ShopContext);
  console.log(getTotalCartAmount(),"ggcjb")
   return (
-    <div className="cartitems">
+    <div>
+    
+<div className="cartitems">
       <div className="cartitems-format-main">
         <p>Products</p>
         <p>Title</p>
@@ -76,6 +80,10 @@ const CartItems = () => {
             </div>
         </div>
       </div>
+    </div>
+        
+    
+    
     </div>
   );
 };

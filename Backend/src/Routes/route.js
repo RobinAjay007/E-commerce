@@ -19,6 +19,11 @@ router.route("/check/user").post(UserController.Login_Check)
 //verify token and get details
 router.route("/get/user").get(verifyAuthToken,UserController.getUserDetails)
 
+//  delete product
+router.route("/delete/product/:id").delete(productController.DeleteProduct)
+
+//get all product
+router.route("/get/product").get(productController.GetAllProduct)
 
 
 module.exports={

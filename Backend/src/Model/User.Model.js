@@ -33,6 +33,9 @@ const UserSchema= new mongoose.Schema(
         profilepicture:{
             type:String,
         },
+        address:{
+            type:String,
+        },
         active:{
             type:Boolean,
             default:true
