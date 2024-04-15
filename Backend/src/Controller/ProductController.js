@@ -1,7 +1,4 @@
 const ProductServices=require('../Services/Product.services')
-
-
-
 //  image upload 
 
 const upload =async (req,res)=>{
@@ -14,6 +11,7 @@ const upload =async (req,res)=>{
 // Create Product
 
 const CreateProductt=async(req,res)=>{
+    
     let data=await ProductServices.CreateProduct(req)
     res.send(data)
 }
@@ -36,10 +34,29 @@ const GetAllProduct=async(req,res)=>{
    res.send(data)
 }
 
+const cartitem=async(req,res)=>{
+    let data =await ProductServices.addProduct(req)
+    res.send("Added")
+}
+
+const removecartitem=async(req,res)=>{
+    let data =await ProductServices.removeProduct(req)
+    res.send("Removed")
+}
+
+const getcartitem=async(req,res)=>{
+    let data =await ProductServices.getCartItem(req)
+    console.log(data)
+    res.send(data)
+}
+
 
 module.exports={
     upload,
     CreateProductt,
     DeleteProduct,
-    GetAllProduct
+    GetAllProduct,
+    cartitem,
+    removecartitem,
+    getcartitem
 }

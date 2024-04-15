@@ -27,6 +27,12 @@ router.route("/get/product").get(productController.GetAllProduct)
 
 router.route("/uploadimage/:id").put(fileupload.upload.single("images"),UserController.upload)
 
+
+router.route("/addtocart").post(verifyAuthToken,productController.cartitem)
+
+router.route("/removecart").post(verifyAuthToken,productController.removecartitem)
+
+router.route("/getcart").post(verifyAuthToken,productController.getcartitem)
 module.exports={
     router,
 }

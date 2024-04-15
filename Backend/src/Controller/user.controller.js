@@ -8,15 +8,16 @@ const {generateAuthToken}=require('../Middleware/Auth');
 
 const user_Create_service= async(req,res)=>{
 let create_servie= await UserCreate.UserCreate(req)
-if(create_servie){
-    console.log(create_servie)
-    res.send({create_servie,success:"Sucessfully Registered"})
+if(!create_servie){
+  res.status(400).send({message:"User already registered"})
 }
 else{
-  res.status(400).send({message:"User already registered"})
+  console.log(create_servie)
+  res.send({create_servie,success:"Sucessfully Registered"})
 }
 
 }
+
 
 
                                                                         

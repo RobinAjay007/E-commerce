@@ -4,7 +4,7 @@ const mongose=require('mongoose')
 const bodyParser=require('body-parser');
 const {router}=require('./src/Routes/route')
 app.use(express.static("upload/images"));
-
+const {User} = require("./src/Model/User.Model");
 // Env
 require('dotenv').config();
 
@@ -35,7 +35,31 @@ mongose.connect(url)
 //Image upload
 app.use(router)
 
+app.post('/user/:userId/cart/add', async (req, res) => {
+    try {
+        const userId = req.params.userId;
+        const { productId, quantity } = req.body;
 
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        // Add or update item in the cart
+        if (user.cart[productId]) {
+            user.cart[productId] += quantity;
+        } else {
+            user.cart[productId] = quantity;
+        }
+
+        await user.save();
+
+        res.json(user.cart);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Server error' });
+    }
+});
 
 //port configure
 app.listen(configPort,(error)=>{

@@ -5,8 +5,8 @@ const Item = (props) => {
 
   return (
     <div className='item'>
-       <Link to={`/product/${props.id}`}><img onClick={window.scrollTo(0,0)} src={props.image} alt="" width={270} height={300} /></Link>
-        <p className='w-[17rem]'>{props.name}</p>
+       <Link to={`/product/${props.id}`}><img onClick={window.scrollTo(0,0)} src={props.Product_Image} alt="" width={270} height={300} /></Link>
+        <p className='w-[17rem]'>{props.ProductName}</p>
         <div className='item-prices'>
             <div className='item-price-new'>
                 ${props.new_price}

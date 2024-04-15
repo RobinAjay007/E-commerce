@@ -1,10 +1,10 @@
 const { User } = require("../Model/User.Model");
 const Bcrypt = require("bcryptjs");
-
+const {Product} = require('../Model/CreateProduct.Model');
 //create user  and encrypt the password usin bcryptjs
 
 const UserCreate = async (req) => {
-  const {emailId,password } = req.body;
+  const {emailId,password} = req.body;
 
   let salt = await Bcrypt.genSaltSync(10);
   let hash = await Bcrypt.hashSync(password, salt);
@@ -15,8 +15,16 @@ const UserCreate = async (req) => {
   if(findemail){
     return console.log("User already registerd")
   }
-  let create = await User.create({ ...req.body, ...{ password: hash } });
+  else{
+  let products= await Product.find()
+  const defaultCart = {};
+  products.forEach(product => {
+      defaultCart[product._id] = 0;
+  });
+ 
+  let create = await User.create({ ...req.body, ...{ password: hash },...{cartData:defaultCart}});
   return create;
+}
 };
 
 // login and password check

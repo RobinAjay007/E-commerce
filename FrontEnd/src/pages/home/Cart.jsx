@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext} from "react";
 import CartItems from "../../components/CartItems/CartItems";
 import { ShopContext } from "./Context/ShopContext";
 import emptyimg from '../../components/Assets/cartempty.webp'
@@ -6,10 +6,13 @@ import { Link } from "react-router-dom";
 
 const Cart = () => {
  const {cartItems}=useContext(ShopContext)
- console.log(cartItems,"caaa")
+ console.log("CartItems:", cartItems);
+
+
 
  // Check if cartItems object is empty
  const isEmptyCart = Object.keys(cartItems).every(key => cartItems[key] === 0); 
+ console.log("isEmptyCart:", isEmptyCart);
   return (
     <div>
        {
