@@ -35,6 +35,13 @@ const LoginByEmailAndPassword = async (req) => {
   let FindEmailid = await User.findOne({ emailId: emailId });
   let compare =await Bcrypt.compare(password, FindEmailid.password);
   if (compare && FindEmailid != null) {
+    // let updatecart=await Product.find();
+    // const defaultCart = {};
+    // updatecart.forEach(product => {
+    //     defaultCart[product._id] = 0;
+    // });
+    // let create = await User.create({...{cartData:defaultCart}});
+   
     return FindEmailid;
   } else {
    return error("Incorrect credentials or User Not Found ");

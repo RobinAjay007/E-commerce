@@ -17,17 +17,13 @@ else{
 }
 
 }
-
-
-
                                                                         
 const Login_Check= async(req,res)=>{
     let check= await UserCreate.LoginByEmailAndPassword(req)
     console.log(check,"")
    let token= await generateAuthToken(check);
     if(check){
-     res.send({token:token, name:check.userName,
-    success:"Login Sucessfully"})
+     res.send({token:token, name:check.userName,success:"Login Sucessfully"})
     }
     else{
     res.status(400).send({failed:"Invalid Credentials or User Not Found"})

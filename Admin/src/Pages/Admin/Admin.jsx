@@ -4,7 +4,7 @@ import Sidebar from '../../Components/Sidebar'
 import {Routes,Route} from 'react-router-dom'
 import AddProduct from '../../Components/AddProduct'
 import ListProduct from '../../Components/ListProduct'
-const Admin = () => {
+const  Admin = () => {
   return (
     <div className='admin'>
       <Sidebar/>

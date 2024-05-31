@@ -46,47 +46,6 @@ const ShopContextprovider = (props) =>{
     
         fetchData();
     }, []);
-    
-    // // Fetch products data and initialize default cart items
-    // useEffect(async() => {
-    //     try{
-            
-    //   await  axios.get("http://localhost:4898/get/product")
-    //         .then((res) => {
-    //             const products = res.data;
-    //             setAllProduct(products);
-
-    //             // Initialize default cart items
-    //             const defaultCart = {};
-    //             products.forEach(product => {
-    //                 defaultCart[product._id] = 0;
-    //             });
-               
-    //             setCartItems(defaultCart);
-    //         })
-    //         .catch(error => {
-    //             console.error("Error fetching products:", error);
-    //         });
-
-    //         if(localStorage.getItem("token")){
-    //             let token = localStorage.getItem('token');
-    //             let config = {
-    //                 headers: {
-    //                     authorization: "Bearer " + token,
-    //                 },
-    //             };
-    //             await axios.post("http://localhost:4898/getcart",{},config)
-    //             .then((res)=>{
-    //                 console.log(res.data,"vfss")
-    //                 setCartItems(res.data)
-    //             })
-    //         }
-    //     }
-    //     catch(error){
-    //         console.log(error)
-    //     }
-        
-    // }, []);
 
     const addToCart = async (itemId) => {
         setCartItems(prev => ({ ...prev, [itemId]: prev[itemId] + 1 }));

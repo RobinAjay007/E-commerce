@@ -71,7 +71,7 @@ const Navbar = () => {
   useEffect(() => {
     getUser()
     // setRefreshed(true)
-  }, []);
+  }, [UseName]);
 
   console.log(UseName)
 
